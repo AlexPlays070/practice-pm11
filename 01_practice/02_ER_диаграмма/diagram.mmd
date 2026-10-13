@@ -1,0 +1,27 @@
+erDiagram
+    BRAND ||--o{ CAR : "выпускает"
+    CAR ||--o{ SALE : "продаётся в"
+    CLIENT ||--o{ SALE : "покупает"
+    EMPLOYEE ||--o{ SALE : "оформляет"
+    BRAND { int id PK
+            text name
+            text country }
+    CAR { int id PK
+          int brand_id FK
+          text model
+          int year
+          text vin
+          real price }
+    CLIENT { int id PK
+             text fio
+             text phone
+             text email }
+    EMPLOYEE { int id PK
+               text fio
+               text position }
+    SALE { int id PK
+           int car_id FK
+           int client_id FK
+           int employee_id FK
+           text sale_date
+           real amount }
